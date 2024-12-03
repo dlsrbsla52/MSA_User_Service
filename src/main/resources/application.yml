@@ -12,7 +12,8 @@ spring:
       path: /h2-console
   jpa:
     hibernate:
-      ddl-auto: create-drop
+      ddl-auto: validate
+#      ddl-auto: create-drop
     show-sql: true
     defer-datasource-initialization: true
     properties:
