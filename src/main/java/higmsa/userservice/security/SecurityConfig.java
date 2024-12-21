@@ -40,7 +40,7 @@ public class SecurityConfig {
 //         Configure AuthenticationManagerBuilder
         AuthenticationManagerBuilder authenticationManagerBuilder =
                 http.getSharedObject(AuthenticationManagerBuilder.class);
-        authenticationManagerBuilder.userDetailsService(userService).passwordEncoder(bCryptPasswordEncoder); // 나중에 구현할거
+        authenticationManagerBuilder.userDetailsService(userService).passwordEncoder(bCryptPasswordEncoder);
 
         AuthenticationManager authenticationManager = authenticationManagerBuilder.build();
 
@@ -56,7 +56,7 @@ public class SecurityConfig {
                                 .requestMatchers(new AntPathRequestMatcher("/swagger-ui/**")).permitAll()
                                 .requestMatchers(new AntPathRequestMatcher("/swagger-resources/**")).permitAll()
                                 .requestMatchers(new AntPathRequestMatcher("/v3/api-docs/**")).permitAll()
-                                .requestMatchers(new AntPathRequestMatcher("/**")).permitAll() // 지금은 잠깐 풀어놓음
+//                                .requestMatchers(new AntPathRequestMatcher("/**")).permitAll() // 지금은 잠깐 풀어놓음
 //                        .requestMatchers("/**").access(this::hasIpAddress)
                                 .requestMatchers("/**").access(
                                         new WebExpressionAuthorizationManager("hasIpAddress('127.0.0.1') or hasIpAddress('58.234.38.215')")) // host pc ip address

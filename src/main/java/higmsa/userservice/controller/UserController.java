@@ -18,7 +18,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 @RestController
-@RequestMapping("/user-service")
+//@RequestMapping("/user-service")
+@RequestMapping("/")
 @RequiredArgsConstructor
 public class UserController {
 
@@ -28,7 +29,16 @@ public class UserController {
 
     @GetMapping("/heath_check")
     public String status(){
-        return String.format("It's Working in User Service on PORT %s", env.getProperty("server.port"));
+        return String.format("It's Working in User Service"
+                + ", port(local.server.port)=" + env.getProperty("local.server.port")
+                + ", port(server.port)=" + env.getProperty("server.port")
+                + ", token expiration time=" + env.getProperty("token.expiration_time"))
+//                + ", gateway ip(env)=" + env.getProperty("gateway.ip")
+//                + ", gateway ip(value)=" + greeting.getIp()
+//                + ", message=" + env.getProperty("greeting.message")
+//                + ", token secret=" + greeting.getSecret()
+                ;
+//        return String.format("It's Working in User Service on PORT %s", env.getProperty("server.port"));
     }
 
     @GetMapping("/welcome")

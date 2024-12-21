@@ -45,3 +45,21 @@ eureka:
 
 greeting:
   message: Welcome to the SImple E-commerce.
+
+logging:
+  level:
+    higmsa: debug
+    com.netflix.eureka: WARN
+    com.netflix.discovery: WARN
+    org.springframework.web.client.RestTemplate: WARN
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: refresh, health, beans
+
+
+#token:
+#  expiration_time: 86400000
+#  secret: user_token_M.M^@GUAwD6,PKgt+5AxzYcpg$/OJ:Oh
